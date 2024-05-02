@@ -42,8 +42,13 @@ jobs:
           name: dist-files
       - name: Output contents
         run: |
+            echo "running ls"
             ls
+            echo "running pwd"
             pwd
+            echo "running ls dist"
             ls dist
+            echo "running ls dist/"
+            ls dist/
       - name: Deploy
         run: echo "Deploying..."
