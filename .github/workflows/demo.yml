@@ -25,6 +25,16 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
+      - name: Output contents
+        run: |
+            echo "running ls"
+            ls
+            echo "running pwd"
+            pwd
+            echo "running ls dist"
+            ls dist
+            echo "running ls dist/"
+            ls dist/
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -40,15 +50,15 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist-files
-      - name: Output contents
-        run: |
-            echo "running ls"
-            ls
-            echo "running pwd"
-            pwd
-            echo "running ls dist"
-            ls dist
-            echo "running ls dist/"
-            ls dist/
+      # - name: Output contents
+      #   run: |
+      #       echo "running ls"
+      #       ls
+      #       echo "running pwd"
+      #       pwd
+      #       echo "running ls dist"
+      #       ls dist
+      #       echo "running ls dist/"
+      #       ls dist/
       - name: Deploy
         run: echo "Deploying..."
